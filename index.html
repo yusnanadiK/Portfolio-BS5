@@ -1,195 +1,647 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CleanOZ - Gas Tipis Pakai CleanOZ! Anti Krisis BBM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --primary-green: #4caf50;
+        --primary-orange: #ff9800;
+        --dark-text: #333;
+        --light-bg: #f8f9fa;
+      }
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    <!-- BS Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+      body {
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.6;
+        color: var(--dark-text);
+      }
 
-    <!-- My CSS -->
-    <link rel="stylesheet" href="style.css" />
+      .hero-section {
+        background: linear-gradient(135deg, var(--primary-green) 0%, #45a049 100%);
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
 
-    <title>My Portfolio | Yusnan Adi Kusuma</title>
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" fill-opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" fill-opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" fill-opacity="0.1"/><circle cx="10" cy="90" r="1" fill="white" fill-opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        opacity: 0.3;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .headline {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 40px;
+        font-weight: 600;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+        color: var(--primary-green);
+        text-align: center;
+      }
+
+      .problem-section {
+        background: var(--light-bg);
+        padding: 80px 0;
+      }
+
+      .problem-text {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        margin-bottom: 30px;
+        color: #666;
+      }
+
+      .solution-section {
+        background: white;
+        padding: 80px 0;
+      }
+
+      .benefit-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        border-left: 5px solid var(--primary-green);
+      }
+
+      .benefit-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .benefit-number {
+        background: var(--primary-green);
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .testimonial-section {
+        background: var(--light-bg);
+        padding: 80px 0;
+      }
+
+      .testimonial-card {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .cta-section {
+        background: linear-gradient(135deg, var(--primary-orange) 0%, #f57c00 100%);
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+      }
+
+      .cta-button {
+        background: white;
+        color: var(--primary-orange);
+        border: none;
+        padding: 20px 50px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 30px;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        color: var(--primary-orange);
+      }
+
+      .product-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px;
+        margin: 20px 0;
+      }
+
+      .youtube-embed {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 15px;
+        margin: 20px 0;
+      }
+
+      .youtube-embed iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .feature-highlight {
+        background: linear-gradient(45deg, var(--primary-green), var(--primary-orange));
+        color: white;
+        padding: 40px;
+        border-radius: 20px;
+        margin: 40px 0;
+        text-align: center;
+      }
+
+      .stats-section {
+        background: var(--primary-green);
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+      }
+
+      .stat-item {
+        margin-bottom: 30px;
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 800;
+        display: block;
+      }
+
+      .stat-label {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      @media (max-width: 768px) {
+        .headline {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .hero-section {
+          padding: 60px 0;
+        }
+
+        .benefit-card {
+          padding: 20px;
+        }
+
+        .cta-button {
+          padding: 15px 30px;
+          font-size: 1.3rem;
+        }
+
+        .problem-section,
+        .solution-section,
+        .testimonial-section {
+          padding: 60px 0;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .headline {
+          font-size: 1.5rem;
+        }
+
+        .subtitle {
+          font-size: 1.1rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .hero-section {
+          padding: 40px 0;
+        }
+
+        .benefit-card {
+          padding: 15px;
+        }
+
+        .cta-button {
+          padding: 12px 25px;
+          font-size: 1.2rem;
+        }
+
+        .stat-number {
+          font-size: 2rem;
+        }
+
+        .feature-highlight {
+          padding: 20px;
+        }
+      }
+
+      .floating-elements {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+
+      .whatsapp-float {
+        background: #25d366;
+        color: white;
+        padding: 15px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        color: white;
+      }
+
+      /* Additional responsive improvements */
+      @media (max-width: 768px) {
+        .hero-section {
+          text-align: center;
+        }
+
+        .hero-content {
+          text-align: center;
+        }
+
+        .youtube-embed {
+          margin: 10px 0;
+        }
+
+        .floating-elements {
+          bottom: 15px;
+          right: 15px;
+        }
+
+        .whatsapp-float {
+          padding: 10px;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
   </head>
-  <body id="home">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm fixed-top">
+  <body>
+    <!-- Hero Section -->
+    <section class="hero-section">
       <div class="container">
-        <a class="navbar-brand" href="#">Yusnan Adi Kusuma</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ms-auto">
-            <a class="nav-link active" aria-current="page" href="#home">Home</a>
-            <a class="nav-link" href="#about">About</a>
-            <a class="nav-link" href="#projects">Projects</a>
-            <a class="nav-link" href="#contact">Contact</a>
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="hero-content">
+              <h1 class="headline">Boros Bensin Bikin Dompet Tipis?</h1>
+              <h2 class="subtitle">Gas Tipis Pakai CleanOZ!</h2>
+              <p class="lead">Tiga Tetes Bukan Cuma Irit, Tapi Bikin Mesin Enteng, Suara Halus, Dan Hemat Biaya Servis!</p>
+              <a href="#order" class="cta-button">KIRIM SAYA CLEANOZ</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <img src="https://cdn.scalev.id/Image/_80DHjOh15B-7JCgbxr9fvoGNEeow1etLsnhm-ELi7s/1740124810449-headline_LP_scalev.webp" alt="CleanOZ Headline" class="product-image" />
           </div>
         </div>
       </div>
-    </nav>
-    <!-- Akhir Navbar -->
-
-    <!-- Jumbotron -->
-    <section class="jumbotron text-center">
-      <img src="img/foto-profile-yus.png" alt="Yusnan Adi Kusuma" width="195" class="rounded-circle img-thumbnail" />
-      <h1 class="display-4">Yusnan Adi Kusuma</h1>
-      <p class="lead">Student | Web Developer | Mobile Developer</p>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#ffffff"
-          fill-opacity="1"
-          d="M0,96L48,90.7C96,85,192,75,288,106.7C384,139,480,213,576,218.7C672,224,768,160,864,160C960,160,1056,224,1152,240C1248,256,1344,224,1392,208L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        ></path>
-      </svg>
     </section>
-    <!-- Akhir Jumbotron -->
 
-    <!-- About -->
-    <section id="about" class="about">
+    <!-- Problem Section -->
+    <section class="problem-section">
       <div class="container">
-        <div class="row text-center mb-4">
-          <div class="col">
-            <h2>About Me</h2>
+        <div class="row">
+          <div class="col-lg-6">
+            <h2 class="section-title">Pernah Ngerasa Gaji Habis Cuma Buat Isi Bensin?</h2>
+            <p class="problem-text">Tarikan motor makin berat. Dompet makin sesak. Hidup rasanya diem di tempat.</p>
+            <p class="problem-text">Padahal setiap hari harus ngerit di jalanan. Cari nafkah. Kirim barang. Jemput anak.</p>
+            <p class="problem-text">Apa nggak capek kalau semua tenaga habis cuma buat bayar bensin?</p>
+          </div>
+          <div class="col-lg-6">
+            <img src="https://cdn.scalev.id/Image/WjYbTMfsRQ5_95XzAAe9aI8H88dv77H0suUWZm2CRds/1740110069436-images_3499951710837471855.webp" alt="Pria dengan helm" class="product-image" />
           </div>
         </div>
-        <div class="row justify-content-center fs-5 text-center">
+
+        <div class="row mt-5">
+          <div class="col-lg-6">
+            <img src="https://cdn.scalev.id/Image/QQQNvdOkiaZRyltWjQn4EnaN9xHGy0XeigGPFxCA0M4/1740105013385-images_1065611710837501574.webp" alt="Perempuan dalam mobil" class="product-image" />
+          </div>
+          <div class="col-lg-6">
+            <h3 style="color: var(--primary-orange); font-weight: 700">Rakyat kecil kayak kita nggak boleh kalah sama krisis.</h3>
+            <p class="problem-text">Karena hemat BBM itu bukan cuma soal bensin. Tapi soal bisa bertahan hidup.</p>
+            <ul class="list-unstyled">
+              <li>✗ Bensin makin mahal, tapi kerja nggak bisa berhenti</li>
+              <li>✗ Mesin motor/mobil makin berat, keluar biaya servis makin mahal</li>
+              <li>✗ Udah irit-irit, tetap habis cuma buat beli bensin</li>
+              <li>✗ Mau nabung, susah. Habis buat jalan terus</li>
+              <li>✗ Capek rasanya, kayak kerja nggak pernah cukup</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+      <div class="container">
+        <h2 class="section-title">CleanOZ: Solusi Anti Krisis BBM</h2>
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <p class="lead">CleanOZ hadir bukan cuma buat irit bensin. CleanOZ adalah cara rakyat kecil ngelawan krisis.</p>
+            <div class="feature-highlight">
+              <h3>Tetesin CleanOZ ke tangki bensin → Mesin bersih → BBM lebih irit → Tarikan enteng → Dompet lebih aman</h3>
+              <p>Ini bukan sulap. Ini solusi.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <img src="https://cdn.scalev.id/Image/Rp5bncNEKTSLhA5K_xPNamJBuH7xu4s3sST2R3zxgQg/1740105550114-images_7642981710837559675_1.webp" alt="Produk CleanOZ" class="product-image" />
+          </div>
+          <div class="col-lg-6">
+            <h3 style="color: var(--primary-green)">Tentang CleanOZ</h3>
+            <p>CleanOZ — Daily Maintenance Liquid Engine</p>
+            <ul class="list-unstyled">
+              <li>✓ Bentuk: Cairan aditif bahan bakar (bensin, pertamax, pertalite, solar)</li>
+              <li>✓ Isi: Botol 12 ml (bisa dipakai berkali-kali)</li>
+              <li>✓ Pemakaian: Cukup 3 tetes per liter BBM</li>
+              <li>✓ Kemasan dijual 1 kotak isi 4 botol</li>
+              <li>✓ Sudah dipercaya sejak 2012</li>
+              <li>✓ Teruji di lebih dari 137.000 kendaraan</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="row">
           <div class="col-md-4">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis maiores aut facere tempora eius optio eaque sunt in exercitationem distinctio.</p>
+            <div class="stat-item">
+              <span class="stat-number">137,000+</span>
+              <span class="stat-label">Kendaraan Terbukti</span>
+            </div>
           </div>
-          <div class="col-md-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam ad, labore error optio explicabo minus quaerat perspiciatis !</div>
+          <div class="col-md-4">
+            <div class="stat-item">
+              <span class="stat-number">20-40%</span>
+              <span class="stat-label">Penghematan BBM</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="stat-item">
+              <span class="stat-number">2012</span>
+              <span class="stat-label">Tahun Terpercaya</span>
+            </div>
+          </div>
         </div>
       </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#e2edff"
-          fill-opacity="1"
-          d="M0,64L34.3,90.7C68.6,117,137,171,206,202.7C274.3,235,343,245,411,245.3C480,245,549,235,617,213.3C685.7,192,754,160,823,165.3C891.4,171,960,213,1029,192C1097.1,171,1166,85,1234,58.7C1302.9,32,1371,64,1406,80L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
-        ></path>
-      </svg>
     </section>
-    <!-- Akhir About -->
 
-    <!-- Projects -->
-    <section id="projects" class="projects">
+    <!-- Benefits Section -->
+    <section class="solution-section">
       <div class="container">
-        <div class="row text-center mb-4">
-          <div class="col">
-            <h2>My Projects</h2>
+        <h2 class="section-title">Manfaat CleanOZ untuk Kendaraan Anda</h2>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="benefit-card">
+              <div class="benefit-number">1</div>
+              <h4>Bensin Jadi Jauh Lebih Irit</h4>
+              <p>Penghematan BBM hingga 20-40% (tergantung kondisi kendaraan), cocok untuk kendaraan pribadi, usaha, hingga mesin kapal.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="benefit-card">
+              <div class="benefit-number">2</div>
+              <h4>Tarikan Mesin Enteng & Responsif</h4>
+              <p>Mesin lebih ringan saat akselerasi, tenaga lebih maksimal, nyaman saat bawa beban berat atau tanjakan.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="benefit-card">
+              <div class="benefit-number">3</div>
+              <h4>Suara Mesin Lebih Halus & Senyap</h4>
+              <p>Mengurangi suara kasar, bikin mesin lebih halus dan tenang saat dipacu.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="benefit-card">
+              <div class="benefit-number">4</div>
+              <h4>Mencegah Kerusakan Mesin</h4>
+              <p>Membersihkan sisa pembakaran dan mencegah kerak karbon yang menempel di piston dan ruang bakar.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="benefit-card">
+              <div class="benefit-number">5</div>
+              <h4>Hasil Langsung Terasa</h4>
+              <p>Hasil bisa langsung dirasakan sejak pemakaian pertama, mesin lebih enteng dan irit BBM.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="benefit-card">
+              <div class="benefit-number">6</div>
+              <h4>Oli Jadi Lebih Awet</h4>
+              <p>Oli 2x lipat lebih bersih dan tahan lama karena ruang bakar lebih bersih.</p>
+            </div>
           </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-md-4 mb-3">
-            <div class="card">
-              <img src="portfolio/1.png" class="card-img-top" alt="project1" />
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
+
+        <div class="row mt-5">
+          <div class="col-lg-6">
+            <img src="https://cdn.scalev.id/Image/MZGHOcb98E9E4mUDGEbmI30LUn8nFqbPhcAfIl_xvMM/1740125254719-icon_benefit.webp" alt="Benefit CleanOZ" class="product-image" />
           </div>
-          <div class="col-md-4 mb-3">
-            <div class="card">
-              <img src="portfolio/2.png" class="card-img-top" alt="project2" />
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <div class="card">
-              <img src="portfolio/3.png" class="card-img-top" alt="project3" />
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <div class="card">
-              <img src="portfolio/4.png" class="card-img-top" alt="project4" />
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <div class="card">
-              <img src="portfolio/5.png" class="card-img-top" alt="project5" />
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
+          <div class="col-lg-6">
+            <img src="https://cdn.scalev.id/Image/JUtBttAUoiW87a5FtXQkrp4Vh50Av4WGh6aq6qt_gzw/save.gif" alt="Animasi Mesin" class="product-image" />
           </div>
         </div>
       </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#ffffff"
-          fill-opacity="1"
-          d="M0,160L34.3,170.7C68.6,181,137,203,206,208C274.3,213,343,203,411,176C480,149,549,107,617,112C685.7,117,754,171,823,213.3C891.4,256,960,288,1029,261.3C1097.1,235,1166,149,1234,106.7C1302.9,64,1371,64,1406,64L1440,64L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
-        ></path>
-      </svg>
     </section>
-    <!-- Akhir Projects -->
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
+    <!-- Testimonials Section -->
+    <section class="testimonial-section">
       <div class="container">
-        <div class="row text-center">
-          <div class="col">
-            <h2>Contact Me</h2>
+        <h2 class="section-title">Testimoni Pengguna CleanOZ</h2>
+
+        <!-- Video Testimonials -->
+        <div class="row mb-5">
+          <div class="col-lg-4">
+            <div class="testimonial-card">
+              <div class="youtube-embed">
+                <iframe src="https://www.youtube.com/embed/VS77po73Ylo" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <h5>Pak Arli - Review CleanOZ</h5>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="testimonial-card">
+              <div class="youtube-embed">
+                <iframe src="https://www.youtube.com/embed/vgjzF0JqfoM" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <h5>Testimoni Pengguna</h5>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="testimonial-card">
+              <div class="youtube-embed">
+                <iframe src="https://www.youtube.com/embed/BJ172CrlpfE" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <h5>Review Produk</h5>
+            </div>
           </div>
         </div>
-        <div class="row justify-content-center mb-4">
-          <div class="col-md-8">
-            <form>
-              <div class="mb-3">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" />
+
+        <!-- Chat Testimonials -->
+        <div class="row">
+          <div class="col-lg-4">
+            <img src="https://cdn.scalev.id/Image/yvVYvCfNskdCJpCCYr7hl_20JVaQc4NsSuwUC7paH6g/1740106471143-images_8242131732162002708.webp" alt="Testimoni Chat 1" class="product-image" />
+          </div>
+          <div class="col-lg-4">
+            <img src="https://cdn.scalev.id/Image/sEtUpeuCGwYjDRYSWOYN4nzW03p7sXTvy6KJUuReRTE/1740106560493-images_5368361732162116127_1.webp" alt="Testimoni Chat 2" class="product-image" />
+          </div>
+          <div class="col-lg-4">
+            <img src="https://cdn.scalev.id/Image/RrNcD8TLCq5Y_KFbNpi7M_PFcMri4MUNGoqFqG--h84/1740106664357-images_9440881732162370426.webp" alt="Testimoni Chat 3" class="product-image" />
+          </div>
+        </div>
+
+        <!-- Ridwan Hanif Endorsement -->
+        <div class="row mt-5">
+          <div class="col-lg-8 mx-auto">
+            <div class="testimonial-card text-center">
+              <img src="https://cdn.scalev.id/Image/Nn3jQwBzPY2gMVipmGZM6qAjIIwf-_fz7pZjVfK_qaw/1740106851040-images_1863501731913227260.webp" alt="Ridwan Hanif" class="product-image" style="max-width: 300px" />
+              <h4>Ridwan Hanif</h4>
+              <p class="lead">Endorsement dari Influencer Otomotif Terpercaya</p>
+              <div class="youtube-embed">
+                <iframe src="https://www.youtube.com/embed/bemupKqha2M" frameborder="0" allowfullscreen></iframe>
               </div>
-              <div class="mb-3">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="email" />
-              </div>
-              <div class="mb-3">
-                <label for="pesan">Pesan</label>
-                <textarea class="form-control" id="pesan" rows="3"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-      <path
-        fill="#0d6efd"
-        fill-opacity="1"
-        d="M0,32L34.3,58.7C68.6,85,137,139,206,144C274.3,149,343,107,411,106.7C480,107,549,149,617,165.3C685.7,181,754,171,823,181.3C891.4,192,960,224,1029,229.3C1097.1,235,1166,213,1234,181.3C1302.9,149,1371,107,1406,85.3L1440,64L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
-      ></path>
-    </svg>
-    <!-- Akhir Contact -->
 
-    <!-- footer -->
-    <footer class="bg-primary text-white text-center pb-5">
-      <p>Created with <i class="bi bi-balloon-heart-fill text-danger"></i> by <a href="https://www.linkedin.com/in/yusnan-adi-kusuma-9736231a9/" class="text-white fw-bold" target="_blank">Yusnan Adi Kusuma</a></p>
-    </footer>
-    <!-- Akhir footer -->
+    <!-- Special Offer Section -->
+    <section class="solution-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-title">Promo Spesial CleanOZ</h2>
+            <img src="https://cdn.scalev.id/Image/PDu4pBDZ1P69C58iKpyUauDJ6isztnAofWHyt0EuY1U/1740108079282-images_9704621732158234215.webp" alt="Promo Spesial" class="product-image" />
+            <div class="feature-highlight">
+              <h3>BONUS EMAS 24K</h3>
+              <p>Setiap pembelian 1 kotak CleanOZ (isi 4 botol) GRATIS Emas 24K dari BlessGold!</p>
+            </div>
+            <img src="https://cdn.scalev.id/Image/eMITD5lVVjei4y2QcFcPT7ahFvyk7t55HpPv94fx_qA/1740108102829-images_7016781731659141551.webp" alt="BlessGold" class="product-image" />
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- CTA Section -->
+    <section class="cta-section" id="order">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 style="font-size: 2.5rem; margin-bottom: 30px">Hidup memang berat.</h2>
+            <h3 style="font-size: 2rem; margin-bottom: 20px">Tapi rakyat kecil nggak boleh kalah.</h3>
+            <p class="lead">CleanOZ bukan cuma cairan irit bensin.</p>
+            <p class="lead">CleanOZ adalah gerakan #AntiKrisis.</p>
+            <p class="lead">Karena setiap tetes CleanOZ, adalah tenaga buat hidup tetap jalan.</p>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+            <div class="mt-5">
+              <img src="https://cdn.scalev.id/Image/iuQDv_XWTq5qzugAqf9OhYuiRj8VdnmpwZ0f8KAmOXg/1740108823242-images_3171531710837787904.webp" alt="Best Quality" class="product-image" style="max-width: 200px" />
+            </div>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
+            <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20CleanOZ" class="cta-button"> KIRIM SAYA CLEANOZ SEKARANG! </a>
+
+            <div class="mt-4">
+              <p>💬 Pesan via WhatsApp - Respon Cepat 24 Jam</p>
+              <p>🚚 Gratis Ongkir Se-Indonesia</p>
+              <p>🏆 Garansi Uang Kembali 100%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="floating-elements">
+      <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20CleanOZ" class="whatsapp-float"> 💬 Chat WhatsApp </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Add animation on scroll
+      window.addEventListener("scroll", function () {
+        const elements = document.querySelectorAll(".benefit-card, .testimonial-card");
+        elements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.style.opacity = "1";
+            element.style.transform = "translateY(0)";
+          }
+        });
+      });
+
+      // Initialize cards with fade-in effect
+      document.querySelectorAll(".benefit-card, .testimonial-card").forEach((card) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(20px)";
+        card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+      });
+    </script>
   </body>
 </html>
